@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Posts } from './posts/entities/posts.entity';
+import { PostModule } from './posts/post.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { Posts } from './posts/entities/posts.entity';
       database: 'db_blogpessoalnest',
       entities: [Posts],
       synchronize: true
-    })
+    }),
+    PostModule
   ],
   controllers: [],
   providers: [],
