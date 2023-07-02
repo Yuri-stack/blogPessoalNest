@@ -13,14 +13,14 @@ export class PostService {
 
     async findAll(): Promise<Posts[]> {
         return await this.postRepository.find({
-            relations: { tema: true }
+            relations: { tema: true, usuario: true }
         });
     }
 
     async findById(id: number): Promise<Posts> {
         let post = await this.postRepository.findOne({
             where: { id },
-            relations: { tema: true }
+            relations: { tema: true, usuario: true }
         });
 
         if (!post) throw new HttpException('Postagem não encontrada', HttpStatus.NOT_FOUND);
@@ -31,7 +31,7 @@ export class PostService {
     async findByTitle(title: string): Promise<Posts[]> {
         return await this.postRepository.find({
             where: { titulo: ILike(`%${title}%`) },
-            relations: { tema: true }
+            relations: { tema: true, usuario: true }
         });
     }
 
