@@ -4,41 +4,41 @@ import { Posts } from '../entities/posts.entity';
 
 @Controller("/posts")
 export class PostController {
-    constructor(private readonly postsService: PostService) { }
+    constructor(private readonly postService: PostService) { }
 
     @Get()
     @HttpCode(HttpStatus.OK)
     findAll(): Promise<Posts[]> {
-        return this.postsService.findAll();
+        return this.postService.findAll();
     }
 
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
     findById(@Param('id', ParseIntPipe) id: number): Promise<Posts> {
-        return this.postsService.findById(id);
+        return this.postService.findById(id);
     }
 
     @Get('/title/:title')
     @HttpCode(HttpStatus.OK)
     findbyTitle(@Param('title') title: string): Promise<Posts[]> {
-        return this.postsService.findByTitle(title);
+        return this.postService.findByTitle(title);
     }
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
     create(@Body() post: Posts): Promise<Posts> {
-        return this.postsService.create(post);
+        return this.postService.create(post);
     }
 
     @Put()
     @HttpCode(HttpStatus.OK)
     update(@Body() post: Posts): Promise<Posts> {
-        return this.postsService.update(post);
+        return this.postService.update(post);
     }
 
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     delete(@Param('id', ParseIntPipe) id: number) {
-        return this.postsService.delete(id);
+        return this.postService.delete(id);
     }
 }
