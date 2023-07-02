@@ -4,6 +4,7 @@ import { Posts } from './posts/entities/posts.entity';
 import { PostModule } from './posts/post.module';
 import { Theme } from './themes/entities/theme.entity';
 import { ThemeModule } from './themes/theme.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { ThemeModule } from './themes/theme.module';
       synchronize: true
     }),
     PostModule,
-    ThemeModule
+    ThemeModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
