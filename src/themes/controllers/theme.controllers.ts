@@ -1,9 +1,11 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from '@nestjs/common'
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common'
 import { ThemeService } from '../services/theme.service';
 import { Theme } from '../entities/theme.entity';
+import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller("/themes")
-export class ThemeController{
+export class ThemeController {
     constructor(private readonly themeService: ThemeService) { }
 
     @Get()
@@ -27,18 +29,18 @@ export class ThemeController{
     @Post()
     @HttpCode(HttpStatus.CREATED)
     create(@Body() theme: Theme): Promise<Theme> {
-      return this.themeService.create(theme);
+        return this.themeService.create(theme);
     }
-  
+
     @Put()
     @HttpCode(HttpStatus.OK)
     update(@Body() theme: Theme): Promise<Theme> {
-      return this.themeService.update(theme);
+        return this.themeService.update(theme);
     }
 
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
-    delete(@Param('id', ParseIntPipe) id: number){
-      return this.themeService.delete(id);
+    delete(@Param('id', ParseIntPipe) id: number) {
+        return this.themeService.delete(id);
     }
 }
