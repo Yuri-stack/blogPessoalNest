@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, MinLength } from "class-validator"
-import { Posts } from "src/posts/entities/posts.entity"
+import { Posts } from "../../posts/entities/posts.entity"
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity({name: "tb_users"})

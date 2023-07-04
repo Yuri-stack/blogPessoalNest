@@ -2,7 +2,7 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Post, Put, UseGuards } fro
 
 import { UserService } from "../services/user.service";
 import { User } from "../entities/user.entity";
-import { JwtAuthGuard } from "src/auth/guard/jwt-auth.guard";
+import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 
 @Controller("/users")
 export class UserController {

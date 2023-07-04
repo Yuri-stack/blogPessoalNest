@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator'
-import { Posts } from 'src/posts/entities/posts.entity'
+import { Posts } from '../../posts/entities/posts.entity'
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 
 @Entity({name: "tb_themes"})

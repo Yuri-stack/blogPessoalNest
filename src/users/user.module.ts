@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { UserService } from './services/user.service';
-import { Bcrypt } from 'src/auth/bcrypt/bcrypt';
+import { Bcrypt } from '../auth/bcrypt/bcrypt';
 import { UserController } from './controllers/user.controllers';
 
 @Module({

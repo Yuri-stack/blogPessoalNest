@@ -2,7 +2,7 @@ import { HttpException, HttpStatus } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { DeleteResult, Repository, ILike } from 'typeorm'
 import { Posts } from '../entities/posts.entity'
-import { ThemeService } from 'src/themes/services/theme.service';
+import { ThemeService } from '../../themes/services/theme.service';
 
 export class PostService {
     constructor(

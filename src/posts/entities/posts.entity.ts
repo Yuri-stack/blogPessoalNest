@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
-import { Theme } from 'src/themes/entities/theme.entity'
-import { User } from 'src/users/entities/user.entity'
+import { Theme } from '../../themes/entities/theme.entity'
+import { User } from '../../users/entities/user.entity'
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, UpdateDateColumn } from 'typeorm'
 
 @Entity({name: "tb_posts"})
